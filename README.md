@@ -3,16 +3,16 @@
 To demo cucumber + selenium combination for php.
 
 # Tools
+  - *cucumber* http://cukes.info/
   - *phpwebdriver* http://code.google.com/p/php-webdriver-bindings/
   - *cuke4php* https://github.com/olbrich/cuke4php 
   - *selenium (2.6)* http://code.google.com/p/selenium/wiki/Grid2
 
 # Requirements
 
-Java
-Ruby 1.8.7 or greater
-PHP 5.2 or greater
-A Selenium grid server running.
+- Java
+- Ruby 1.8.7 or greater
+- PHP 5.2 or greater
 
 # Setup
 
