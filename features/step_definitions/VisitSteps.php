@@ -2,12 +2,12 @@
 
 require_once "phpwebdriver/WebDriver.php";
 require_once "phpwebdriver/LocatorStrategy.php";
+require_once 'PhpBdd/BrowserDriver.php';
 
 class VisitSteps extends CucumberSteps {
 
   public function beforeAll(){
     $this->driver = $this->setupDriver();
-    echo 'BEFORE_ALL';
   }
   
   public function afterAll(){
@@ -17,10 +17,9 @@ class VisitSteps extends CucumberSteps {
   }
   
   public function setupDriver(){
-    $webdriver = new WebDriver("localhost", "4444");
-    $webdriver->connect("firefox");
-    
-    return $webdriver;
+		$webdriver = new WebDriver("uncleonce.greatamerica.corp.yahoo.com", "4444");
+   	$webdriver->connect("firefox");
+   	return $webdriver;
   }
  
   /**

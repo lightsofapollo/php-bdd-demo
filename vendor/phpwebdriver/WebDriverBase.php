@@ -29,6 +29,10 @@ class WebDriverBase {
     function __construct($_seleniumUrl) {
         $this->requestURL = $_seleniumUrl;
     }
+
+		public function __destruct(){
+			$this->curlClose();
+		}
     
     protected function &curlInit( $url ) {
         if( $this->_curl === null ) {
@@ -41,7 +45,7 @@ class WebDriverBase {
         curl_setopt( $this->_curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $this->_curl, CURLOPT_FOLLOWLOCATION, true );
         curl_setopt( $this->_curl, CURLOPT_HEADER, false );
-//		print_r($url."\n");
+				print_r($url."\n");
         return $this->_curl;
     }
 
@@ -74,7 +78,7 @@ class WebDriverBase {
 
     protected function prepareGET( $session ) {
         
-        //curl_setopt($session, CURLOPT_GET, true);
+        curl_setopt($session, CURLOPT_HTTPGET, true);
     }
 
     protected function prepareDELETE($session) {

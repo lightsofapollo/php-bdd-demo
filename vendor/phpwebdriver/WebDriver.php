@@ -22,8 +22,11 @@ require_once 'WebDriverException.php';
 require_once 'LocatorStrategy.php';
 
 class WebDriver extends WebDriverBase {
+	
+		public $hostUrl;
 
     function __construct($host, $port) {
+				$this->hostUrl = "http://" . $host . ":" . $port;
         parent::__construct("http://" . $host . ":" . $port . "/wd/hub");
     }
 
@@ -36,6 +39,8 @@ class WebDriver extends WebDriverBase {
     public function connect($browserName="firefox", $version="", $caps=array()) {
         $request = $this->requestURL . "/session";
         $session = $this->curlInit($request);
+
+
     $allCaps = 	
         array_merge(
               array(
@@ -48,13 +53,26 @@ class WebDriver extends WebDriverBase {
                   'version'=>$version,
                  )
         );
-    $params = array( 'desiredCapabilities' =>	$allCaps );
-    $postargs = json_encode($params);
+    		$params = array( 'desiredCapabilities' =>	$allCaps );
+
+    		$postargs = json_encode($params);
+
         $this->preparePOST($session, $postargs);
         curl_setopt($session, CURLOPT_HEADER, true);
+				curl_setopt($session, CURLOPT_FRESH_CONNECT, true);
+				curl_setopt($session, CURLOPT_FORBID_REUSE, true);
+
         $response = curl_exec($session);
         $header = curl_getinfo($session);
-        $this->requestURL = $header['url'];
+				
+
+        $url = $header['url'];
+				
+				$parsed = parse_url($url);
+
+				$this->requestURL = $this->hostUrl . $parsed['path'];
+				
+			
     }
 
      /**
