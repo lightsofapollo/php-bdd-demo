@@ -40,12 +40,14 @@ class WebDriver extends WebDriverBase {
         $request = $this->requestURL . "/session";
         $session = $this->curlInit($request);
 
+				$info = curl_getinfo($session);
+
 
     $allCaps = 	
         array_merge(
               array(
                   'javascriptEnabled' => true,
-                  'nativeEvents'=>false,
+                  'nativeEvents'=> true,
                  ),
             $caps,
               array(

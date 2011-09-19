@@ -45,7 +45,10 @@ class WebDriverBase {
         curl_setopt( $this->_curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $this->_curl, CURLOPT_FOLLOWLOCATION, true );
         curl_setopt( $this->_curl, CURLOPT_HEADER, false );
-				print_r($url."\n");
+				curl_setopt( $this->_curl, CURLOPT_TIMEOUT, 5);
+				curl_setopt( $this->_curl, CURLOPT_MAXCONNECTS, 100);
+
+
         return $this->_curl;
     }
 

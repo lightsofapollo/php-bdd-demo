@@ -10,4 +10,4 @@ Feature: Happy James
     Given I have entered "Selenium" in "Web Search"
     And I submit "Web Search"
     Then I should see "Web Browser Automation"
-    
+    Then a screenshot "yahoo-proof.png" will be saved

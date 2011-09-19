@@ -17,7 +17,7 @@ class VisitSteps extends CucumberSteps {
   }
   
   public function setupDriver(){
-		$webdriver = new WebDriver("uncleonce.greatamerica.corp.yahoo.com", "4444");
+		$webdriver = PhpBdd_BrowserDriver::getInstance()->createDriver();
    	$webdriver->connect("firefox");
    	return $webdriver;
   }
@@ -52,9 +52,17 @@ class VisitSteps extends CucumberSteps {
    */
   public function stepIShouldSee($needle){
     $element = $this->findByCss('body');
+
     $haystack = $element->getText();
     self::assertTrue((strpos($haystack, $needle) !== false));
   }
+
+	/**
+	* Then /^a screenshot "([^"]*)" will be saved$/
+	**/
+	public function stepThenAScreenshotWillBeSaved($name){
+		$this->driver->getScreenshotAndSaveToFile($name);
+	}
   
   protected function findByCss($css){
     return $this->driver->findElementBy(LocatorStrategy::cssSelector, $css);
