@@ -21,6 +21,7 @@ These steps should work fine elsewhere but you need to meet
 the requirements. Ruby is required to run cucumber
 but does not play a role in the tests themselves.
 
+
 ## 0. Ensure You have PHPUnit ( You probably already have it installed )
 
 Make sure you have PHPUnit installed correctly via pear.
@@ -63,6 +64,11 @@ Start the server hub.
 In a new terminal tab/window start the server node (this actually talks to browsers)
 
     java -jar selenium-server-standalone-2.6.0.jar -role webdriver -hub http://localhost:4444/grid/register -port 5556
+    
+## Important
+If you are on linux you may need the DISPLAY env set to :0 for selenium to run firefox correctly.
+
+    export DISPLAY=:0    
 
 ### 3. Download the repository
   
