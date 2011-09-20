@@ -1,6 +1,6 @@
 <?php
 
-define('PHP_BDD_ROOT', dirname(dirname(__FILE__)));
+require_once dirname(dirname(__FILE__)) . '/test_helper.php';
 
 class Loader
 {    
@@ -22,11 +22,7 @@ class Loader
 
 Loader::registerAutoload();
 
-set_include_path( dirname(dirname(__FILE__ )) . '/vendor/:' . get_include_path());
 set_include_path( dirname(dirname(__FILE__ )) . '/vendor/cuke4php/lib/:' . get_include_path());
-set_include_path( dirname(dirname(__FILE__ )) . '/vendor/phpwebdriver/:' . get_include_path());
-set_include_path( dirname(dirname(__FILE__ )) . '/lib/:' . get_include_path());
 
-// require_once "phpwebdriver/WebDriver.php";
-// require_once "phpwebdriver/LocatorStrategy.php";
-require_once 'CucumberSteps.php';
+
+

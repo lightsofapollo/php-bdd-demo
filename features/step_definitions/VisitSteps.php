@@ -3,11 +3,14 @@
 require_once "phpwebdriver/WebDriver.php";
 require_once "phpwebdriver/LocatorStrategy.php";
 require_once 'PhpBdd/BrowserDriver.php';
+require_once 'PhpBdd/Debug/FileFactory.php';
+require_once 'PhpBdd/Debug/SaveAndOpenPage.php';
 
 class VisitSteps extends CucumberSteps {
 
   public function beforeAll(){
     $this->driver = $this->setupDriver();
+    $this->save_and_open_page = new PhpBdd_Debug_SaveAndOpenPage($this);
   }
   
   public function afterAll(){
@@ -27,6 +30,7 @@ class VisitSteps extends CucumberSteps {
    **/
   public function stepIamAt($url){
     $this->driver->get($url);
+    $this->save_and_open_page->saveAndOpenPage();
   }
   
   /**

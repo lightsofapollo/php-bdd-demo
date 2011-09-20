@@ -7,7 +7,7 @@ class PhpBdd_Debug_SaveAndOpenPage {
 
   public $suppressOpen = false;
 
-  public function __construct(CucumberSteps $step){
+  public function __construct($step){
     $this->step = $step;
   }
 
