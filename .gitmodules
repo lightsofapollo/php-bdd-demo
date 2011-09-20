@@ -1,0 +1,3 @@
+[submodule "vendor/cuke4php"]
+	path = vendor/cuke4php
+	url = https://github.com/olbrich/cuke4php.git

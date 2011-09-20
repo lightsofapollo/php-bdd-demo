@@ -61,8 +61,8 @@ class WebDriver extends WebDriverBase {
 
         $this->preparePOST($session, $postargs);
         curl_setopt($session, CURLOPT_HEADER, true);
-				curl_setopt($session, CURLOPT_FRESH_CONNECT, true);
-				curl_setopt($session, CURLOPT_FORBID_REUSE, true);
+				// curl_setopt($session, CURLOPT_FRESH_CONNECT, true);
+				// curl_setopt($session, CURLOPT_FORBID_REUSE, true);
 
         $response = curl_exec($session);
         $header = curl_getinfo($session);
