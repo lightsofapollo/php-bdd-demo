@@ -5,6 +5,8 @@ class PhpBdd_Debug_SaveAndOpenPage {
   protected $step;
   protected $lastGeneratedFile;
 
+  public $suppressOpen = false;
+
   public function __construct(CucumberSteps $step){
     $this->step = $step;
   }
@@ -13,14 +15,23 @@ class PhpBdd_Debug_SaveAndOpenPage {
     return $this->step;
   }
 
-  public function getLastGeneratedFile(){
-    return $this->lastGeneratedFile;
+  public function saveAndOpenPage(){
+    $source = $this->step->driver->getPageSource();
+    $file = PhpBdd_Debug_FileFactory::genTmpFileName('debug', 'source', '.html');
+
+    $handle = fopen($file, 'w');
+    fwrite($handle, $source);
+    fclose($handle);
+
+    if(!$this->suppressOpen){
+      $open = `which open`;
+      if(strpos($open, '/usr/bin/') !== false){
+        `open $file`;
+      }
+    }
   }
 
-  public function generateTemporaryFileName() {
-    $this->lastGeneratedFile = time() . '_' . rand(100, 10000) . rand(1, 9);
-    return $this->lastGeneratedFile;
-  }
+
 
 }
 

@@ -9,33 +9,28 @@ class PhpBdd_Debug_SaveAndOpenPageTest extends PhpBdd_TestCase {
   public function setUp(){
     $this->step = $this->getStep();
     $this->subject = new PhpBdd_Debug_SaveAndOpenPage($this->step);
+    $this->subject->suppressOpen = true;
   }
 
   public function testConstruct(){
-    $this->assertEquals($this->step, $this->subject->getStep());
+    $this->assertSame($this->step, $this->subject->getStep());
   }
 
   public function testSaveAndOpenPage(){
     $mock = $this->mockDriver();
+    $expected = 'source of file';
 
     $mock->expects($this->any())
       ->method('getPageSource')
-      ->will($this->returnValue('source of file'));
+      ->will($this->returnValue($expected));
+
 
     $this->subject->saveAndOpenPage();
-    $file = $this->subject->getLastGeneratedFile();
+    $file = PhpBdd_Debug_FileFactory::$lastGeneratedTmpFileName;
 
     $this->assertFileExists($file);
-  }
-
-  public function testGenerateTemporryFileName(){
-    $len = strlen($this->subject->generateTemporaryFileName());
-    $this->assertGreaterThan(10, $len);
-    $this->assertNotNull($this->subject->getLastGeneratedFile());
-
-    $expected_path = PHP_BDD_ROOT . '/tmp/';
-
-
+    $contents = file_get_contents($file);
+    $this->assertEquals($expected, $contents);
   }
 
 

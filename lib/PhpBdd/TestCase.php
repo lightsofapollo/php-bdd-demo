@@ -6,10 +6,14 @@ class PhpBdd_TestCase extends PHPUnit_Framework_TestCase {
 
   public function mockDriver(){
     if(!$this->mockDriver){
-      $this->mock_driver = $this->getMock('WebDriver', null, array('host', '4444'));
-    } else {
-      return $this->mockDriver;
+      $stub = $this->getMockBuilder('WebDriver')
+                   ->disableOriginalConstructor()
+                   ->getMock();
+
+      $this->mockDriver = $stub;
     }
+
+    return $this->mockDriver;
   }
 
   public function getStep(){
