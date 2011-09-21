@@ -5,7 +5,7 @@ end
 
 
 def run_phpunit(file)
- command = "phpunit #{phpunit_default_args} #{file}"
+ command = "phpunit #{phpunit_default_args} #{File.dirname(__FILE__)}/#{file}"
  
  puts "Executing: #{command}"
  system(command);
@@ -14,5 +14,6 @@ end
 
 watch( 'tests/.*Test\.php' )  {|md| run_phpunit(md[0]) }
 watch( 'lib/(.*)\.php' )  {|md| run_phpunit("tests/#{md[1]}Test.php") }
-watch('tests/test_helper.php') { run_phpunit('tests') }
+watch('tests/test_helper.php') { run_phpunit('tests/') }
+
 

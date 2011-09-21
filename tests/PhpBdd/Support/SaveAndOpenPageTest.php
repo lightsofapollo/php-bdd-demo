@@ -1,14 +1,14 @@
 <?php
 
-class PhpBdd_Debug_SaveAndOpenPageTest extends PhpBdd_TestCase {
+class PhpBdd_Support_SaveAndOpenPageTest extends PhpBdd_TestCase {
 
   public function createSubject(){
-    return PhpBdd_Debug_SaveAndOpenPage($this->getStep());
+    return PhpBdd_Support_SaveAndOpenPage($this->getStep());
   }
 
   public function setUp(){
     $this->step = $this->getStep();
-    $this->subject = new PhpBdd_Debug_SaveAndOpenPage($this->step);
+    $this->subject = new PhpBdd_Support_SaveAndOpenPage($this->step);
     $this->subject->suppressOpen = true;
   }
 
@@ -26,7 +26,7 @@ class PhpBdd_Debug_SaveAndOpenPageTest extends PhpBdd_TestCase {
 
 
     $this->subject->saveAndOpenPage();
-    $file = PhpBdd_Debug_FileFactory::$lastGeneratedTmpFileName;
+    $file = PhpBdd_Support_FileFactory::$lastGeneratedTmpFileName;
 
     $this->assertFileExists($file);
     $contents = file_get_contents($file);

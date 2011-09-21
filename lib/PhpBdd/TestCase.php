@@ -1,6 +1,6 @@
 <?php
 
-class PhpBdd_TestCase extends PHPUnit_Framework_TestCase {
+abstract class PhpBdd_TestCase extends PHPUnit_Framework_TestCase {
 
   protected $mockDriver;
 

@@ -1,6 +1,6 @@
 <?php
 
-class PhpBdd_Debug_FileFactory {
+class PhpBdd_Support_FileFactory {
 
   static public $lastGeneratedTmpFileName;
 
@@ -37,7 +37,7 @@ class PhpBdd_Debug_FileFactory {
    * <code>
    * <?php
    *
-   *  PhpBdd_Debug_FileFactory::genTmpFileName('debug', 'screenshot', 'suffix.png');
+   *  PhpBdd_Support_FileFactory::genTmpFileName('debug', 'screenshot', 'suffix.png');
    *  // => ROOT . 'debug/screenshot/randomly_generated_suffix.png';
    * ?>
    * </code>
@@ -53,7 +53,7 @@ class PhpBdd_Debug_FileFactory {
     }
 
     $extension = array_pop($args);
-    $path = PhpBdd_Debug_FileFactory::getPath($args);
+    $path = PhpBdd_Support_FileFactory::getPath($args);
 
     $random = time() . '_' . rand(0, 10) . rand(100, 999);
 

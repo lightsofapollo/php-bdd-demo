@@ -1,6 +1,6 @@
 <?php
 
-class PhpBdd_Debug_SaveAndOpenPage {
+class PhpBdd_Support_SaveAndOpenPage {
 
   protected $step;
   protected $lastGeneratedFile;
@@ -17,7 +17,7 @@ class PhpBdd_Debug_SaveAndOpenPage {
 
   public function saveAndOpenPage(){
     $source = $this->step->driver->getPageSource();
-    $file = PhpBdd_Debug_FileFactory::genTmpFileName('debug', 'source', '.html');
+    $file = PhpBdd_Support_FileFactory::genTmpFileName('debug', 'source', '.html');
 
     $handle = fopen($file, 'w');
     fwrite($handle, $source);

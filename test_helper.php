@@ -1,6 +1,6 @@
 <?php
 
-define('PHP_BDD_ROOT', dirname(dirname(__FILE__)));
+define('PHP_BDD_ROOT', dirname(__FILE__));
 
 
 

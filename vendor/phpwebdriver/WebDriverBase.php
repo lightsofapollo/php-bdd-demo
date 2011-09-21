@@ -49,6 +49,7 @@ class WebDriverBase {
 				curl_setopt( $this->_curl, CURLOPT_MAXCONNECTS, 100);
 
 
+
         return $this->_curl;
     }
 
