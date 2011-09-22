@@ -19,7 +19,7 @@ class PhpBdd_Support_HelpersTest extends PhpBdd_TestCase {
 
   public function addHelper(){
     $inst = $this->getInst();
-    $inst->addHelperClass('object', 'stdClass');
+    $inst->addHelper('object', 'stdClass');
   }
 
   public function testGetInstance(){
@@ -32,10 +32,10 @@ class PhpBdd_Support_HelpersTest extends PhpBdd_TestCase {
   }
 
   public function tearDown(){
-    $this->getInst()->clearHelperClasses();
+    $this->getInst()->clearHelpers();
   }
 
-  public function testAddHelperClass(){
+  public function testAddHelper(){
     $inst = $this->getInst();
     $list = $inst->getHelperAliases();
 
@@ -47,19 +47,19 @@ class PhpBdd_Support_HelpersTest extends PhpBdd_TestCase {
     $this->assertTrue($this->getInst()->hasHelper('object'), 'should return true when given added "object" helper');
   }
 
-  public function testGetHelperClass(){
+  public function testGetHelper(){
     $inst = $this->getInst();
 
-    $class = $inst->getHelperClass('object');
+    $class = $inst->getHelper('object');
 
     $this->assertEquals('stdClass', $class);
   }
 
-  public function testClearHelperClasses(){
+  public function testClearHelpers(){
     $inst = $this->getInst();
     $this->assertTrue($inst->hasHelper('object'), 'should have helper object');
 
-    $inst->clearHelperClasses();
+    $inst->clearHelpers();
 
     $this->assertFalse($inst->hasHelper('object'), 'should have cleared helper "object"');
   }
@@ -76,7 +76,7 @@ class PhpBdd_Support_HelpersTest extends PhpBdd_TestCase {
     $inst = $this->getInst();
     $arg = array('driver' => 'object');
 
-    $inst->addHelperClass('mockDriver', 'PhpBdd_Support_HelpersTest_MockedHelper');
+    $inst->addHelper('mockDriver', 'PhpBdd_Support_HelpersTest_MockedHelper');
     $helper = $inst->initializeHelper('mockDriver', $arg);
 
     $this->assertInstanceOf(

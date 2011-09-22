@@ -1,9 +1,9 @@
 <?php
 
-class PhpBdd_Support_SaveAndOpenPageTest extends PhpBdd_TestCase {
+class PhpBdd_Helpers_SaveAndOpenPageTest extends PhpBdd_TestCase {
 
   public function createSubject(){
-    return PhpBdd_Support_SaveAndOpenPage($this->getStep());
+    return PhpBdd_Helpers_SaveAndOpenPage($this->getStep());
   }
 
   public function setUp(){

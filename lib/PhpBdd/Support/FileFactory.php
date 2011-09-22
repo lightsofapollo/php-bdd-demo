@@ -28,11 +28,11 @@ class PhpBdd_Support_FileFactory {
 
     return $root. '/' . implode('/', $args);
   }
-
+  
   /*
    * Generates a temporary file name for application to use elswhere
    * Full path given takes same params as getPath with the addition of
-   * the file ext as the last parameter
+   * the file ext as the last parater
    *
    * <code>
    * <?php

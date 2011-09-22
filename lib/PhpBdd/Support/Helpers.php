@@ -10,7 +10,7 @@
  *    $helpers = PhpBdd_Support_Helpers->getInstance();
  *
  *    // Add helper alias
- *    $helpers->addHelperClass('saveAndOpenPage', 'PhpBdd_Support_SaveAndOpenPage');
+ *    $helpers->addHelper('saveAndOpenPage', 'PhpBdd_Support_SaveAndOpenPage');
  *
  *    // Construct helper with arguments for constructor
  *    $helpers->initializeHelper('saveAndOpenPage', $constructorArgs);
@@ -27,7 +27,7 @@
  *   # => true
  *
  *   // Clear all helper aliases
- *   $helpers->clearHelperClasses();
+ *   $helpers->clearHelper();
  *   $helpers->helperList();
  *   # => array()
  *
@@ -62,7 +62,7 @@ class PhpBdd_Support_Helpers {
    * @return mixed Helper instance constructed with $constructArgs
    */
   public function initializeHelper($name, $constructArg = null){
-    $class = $this->getHelperClass($name);
+    $class = $this->getHelper($name);
     if($class){
       if($constructArg !== null){
         return new $class($constructArg);
@@ -97,7 +97,7 @@ class PhpBdd_Support_Helpers {
    * @param string $name helper alias
    * @return string class of given alias
    */
-  public function getHelperClass($name){
+  public function getHelper($name){
     if($this->hasHelper($name)){
       return $this->helperAliases[$name];
     }
@@ -110,7 +110,7 @@ class PhpBdd_Support_Helpers {
    * @param string $class Name of helper class
    * @param string $alias Name which helper is referenced
    */
-  public function addHelperClass($alias, $class){
+  public function addHelper($alias, $class){
     $this->helperAliases[$alias] = $class;
   }
 
@@ -118,7 +118,7 @@ class PhpBdd_Support_Helpers {
   /*
    * Removes all helper aliases from list
    */
-  public function clearHelperClasses(){
+  public function clearHelpers(){
     $this->helperAliases = array();
   }
 

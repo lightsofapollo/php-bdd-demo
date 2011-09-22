@@ -1,6 +1,6 @@
 <?php
 
-class PhpBdd_Support_SaveAndOpenPage {
+class PhpBdd_Helpers_SaveAndOpenPage {
 
   protected $step;
   protected $lastGeneratedFile;
