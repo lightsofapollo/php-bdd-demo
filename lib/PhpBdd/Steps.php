@@ -6,6 +6,8 @@ class PhpBdd_Steps extends CucumberSteps {
     // parent::__construct(&$globals);
   // }
 
+
+
 }
 
 ?>

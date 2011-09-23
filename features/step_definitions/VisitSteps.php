@@ -3,8 +3,8 @@
 require_once "phpwebdriver/WebDriver.php";
 require_once "phpwebdriver/LocatorStrategy.php";
 require_once 'PhpBdd/BrowserDriver.php';
-require_once 'PhpBdd/Debug/FileFactory.php';
-require_once 'PhpBdd/Debug/SaveAndOpenPage.php';
+require_once 'PhpBdd/Support/FileFactory.php';
+require_once 'PhpBdd/Helpers/SaveAndOpenPage.php';
 require_once 'PhpBdd/Steps.php';
 
 
@@ -12,10 +12,15 @@ class VisitSteps extends PhpBdd_Steps {
 
   public function beforeAll(){
     $this->driver = $this->setupDriver();
-    // $this->save_and_open_page = new PhpBdd_Support_SaveAndOpenPage($this);
+    $this->save_and_open_page = new PhpBdd_Helpers_SaveAndOpenPage($this);
   }
-  
+
+  public function openIt(){
+    $this->save_and_open_page->saveAndOpenPage();
+  }
+
   public function afterAll(){
+
     if($this->driver){
       $this->driver->close();
     }
@@ -32,7 +37,6 @@ class VisitSteps extends PhpBdd_Steps {
    **/
   public function stepIamAt($url){
     $this->driver->get($url);
-    // $this->save_and_open_page->saveAndOpenPage();
   }
   
   /**
@@ -44,6 +48,18 @@ class VisitSteps extends PhpBdd_Steps {
      
     $element->sendKeys(array($value));
   }
+
+    /**
+   * Given /^I have entered "([^"]*)" in input name "([^"]*)"$/
+   */
+  public function stepIHaveEnteredName($value, $input_title){
+    $webdriver = $this->driver;
+    $element = $this->findByCss("input[name='{$input_title}']");
+     
+    $element->sendKeys(array($value));
+  }
+  
+
   
   /**
   * Given /^I submit "([^"]*)"$/
@@ -52,6 +68,15 @@ class VisitSteps extends PhpBdd_Steps {
     $element = $this->findByCss("button[value='{$field}']");
     $element->click();
   }
+
+  /**
+  * Given /^I submit with name "([^"]*)"$/
+  **/
+  public function stepISubmitWithName($field){
+    $element = $this->findByCss("input[name='{$field}']");
+    $element->click();
+  }
+  
   
   /**
    * Then /^I should see "([^"]*)"$/
@@ -63,13 +88,13 @@ class VisitSteps extends PhpBdd_Steps {
     self::assertTrue((strpos($haystack, $needle) !== false));
   }
 
-	/**
-	* Then /^a screenshot "([^"]*)" will be saved$/
-	**/
-	public function stepThenAScreenshotWillBeSaved($name){
-		$this->driver->getScreenshotAndSaveToFile($name);
-	}
-  
+  /**
+  * Then /^a screenshot "([^"]*)" will be saved$/
+  **/
+  public function stepThenAScreenshotWillBeSaved($name){
+    $this->driver->getScreenshotAndSaveToFile($name);
+  }
+
   protected function findByCss($css){
     return $this->driver->findElementBy(LocatorStrategy::cssSelector, $css);
   }

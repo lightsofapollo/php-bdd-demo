@@ -5,9 +5,9 @@ require_once dirname(dirname(__FILE__))  . '/test_helper.php';
 
 require_once "phpwebdriver/WebDriver.php";
 require_once "phpwebdriver/LocatorStrategy.php";
+require_once 'PhpBdd/BrowserDriver.php';
 
-$webdriver = new WebDriver("uncleonce.greatamerica.corp.yahoo.com", "4444");
-
+$webdriver = PhpBdd_BrowserDriver::getInstance()->createDriver();
 // echo "Connecting to driver \n";
 
 $webdriver->connect("firefox");         
