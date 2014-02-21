@@ -7,7 +7,6 @@ require_once 'PhpBdd/Support/FileFactory.php';
 require_once 'PhpBdd/Helpers/SaveAndOpenPage.php';
 require_once 'PhpBdd/Steps.php';
 
-
 class VisitSteps extends PhpBdd_Steps
 {
 
@@ -24,7 +23,6 @@ class VisitSteps extends PhpBdd_Steps
 
     public function afterAll()
     {
-
         if ($this->driver) {
             $this->driver->close();
         }
@@ -33,7 +31,7 @@ class VisitSteps extends PhpBdd_Steps
     public function setupDriver()
     {
         $webdriver = PhpBdd_BrowserDriver::getInstance()->createDriver();
-        $webdriver->connect("firefox");
+        $webdriver->connect("safari");
         return $webdriver;
     }
 

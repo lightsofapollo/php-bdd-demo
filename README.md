@@ -30,7 +30,15 @@ source ~/.bashrc
 # The next steps are from: https://github.com/lightsofapollo/php-bdd-demo
 
 # install cuke4php, which is a Ruby gem
-sudo gem install cuke4php 
+gem install cuke4php
+
+# install cuke4php, which is a Ruby gem
+gem install watchr
+# event watcher for Linux/BSD
+gem install rev
+# event watcher for OSX
+gem install ruby-fsevent
+
 
 # verify installation succeeded
 which cuke4php
@@ -46,9 +54,11 @@ composer install
 # In another tab:
 ./bin/selenium-webdriver.sh
 
-# Run cuke tests
- cuke4php features
-# OR behat tests
-vendor/bin/behat --verbose --profile headless
-vendor/bin/behat --verbose 
+# turn on auto test-running (runs headless behat tests)
+observr ./test.observr.rb
+
+# Run behat tests
+./bin/behat --verbose --profile headless
+# or for the full browser test
+./bin/behat --verbose
 

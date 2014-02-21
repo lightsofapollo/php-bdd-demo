@@ -20,4 +20,3 @@ Feature: Happy James
     And I wait for the text "results" to appear
     Then I should see "docs.seleniumhq.org"
     And a screenshot "yahoo-proof.png" will be saved
-
