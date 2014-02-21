@@ -29,11 +29,17 @@ source ~/.bashrc
 
 # The next steps are from: https://github.com/lightsofapollo/php-bdd-demo
 
+# install rvm and ruby
+\curl -sSL https://get.rvm.io | bash
+rvm install ruby-2.1.0
+rvm reload
+bundle install
+<!-- 
 # install cuke4php, which is a Ruby gem
 sudo gem install cuke4php 
 
 # verify installation succeeded
-which cuke4php
+which cuke4php -->
 
 # navigate into folder
 # install dependencies PHPUnit and PHPUnit_Selenium
@@ -45,10 +51,10 @@ composer install
 
 # In another tab:
 ./bin/selenium-webdriver.sh
-
+<!-- 
 # Run cuke tests
- cuke4php features
+ cuke4php features -->
 # OR behat tests
-vendor/bin/behat --verbose --profile headless
-vendor/bin/behat --verbose 
+bin/behat --verbose --profile headless
+bin/behat --verbose 
 
