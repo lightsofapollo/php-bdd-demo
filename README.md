@@ -1,3 +1,7 @@
+# download a demo selenium app
+# the next command will create a new folder and place the demo code in it
+git clone git@github.com:michikono/php-bdd-demo.git
+
 # (OPTIONAL) if brew has problems, run this next line:
 # sudo chown -R $USER /usr/local/Cellar/
 
@@ -31,10 +35,6 @@ sudo gem install cuke4php
 # verify installation succeeded
 which cuke4php
 
-# download a demo selenium app
-# the next command will create a new folder and place the demo code in it
-git clone git@github.com:michikono/php-bdd-demo.git
-
 # navigate into folder
 # install dependencies PHPUnit and PHPUnit_Selenium
 composer install
@@ -48,7 +48,7 @@ composer install
 
 # Run cuke tests
  cuke4php features
-# OR behat tests 
+# OR behat tests
 vendor/bin/behat --verbose --profile headless
 vendor/bin/behat --verbose 
 
