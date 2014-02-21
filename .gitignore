@@ -3,7 +3,8 @@ debug/source/*
 debug/screenshots/*
 *-proof.png
 bin/*
-
+!bin/*.jar
+!bin/selenium*.sh
 vendor/*
 !vendor/cuke4php/*
 !vendor/phpwebdriver/*
