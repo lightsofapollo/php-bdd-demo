@@ -2,6 +2,8 @@
 debug/source/*
 debug/screenshots/*
 *-proof.png
+bin/*
+
 vendor/*
 !vendor/cuke4php/*
 !vendor/phpwebdriver/*

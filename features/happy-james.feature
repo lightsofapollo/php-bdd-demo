@@ -7,13 +7,13 @@ Feature: Happy James
     Given I am at "http://www.bing.com"
     And I have entered "Selenium" in "Enter your search term"
     And I submit with name "go"
-    Then I should see "Selenium - Official Site"
-    And a screenshot "bing-proof.png" will be saved  
+    Then I should see "docs.seleniumhq.org"
+    And a screenshot "bing-proof.png" will be saved
 
   Scenario: Trying to find examples on yahoo.com
     Given I am at "http://www.yahoo.com"
     And I have entered "Selenium" in "Search"
     And I submit "Search"
-    Then I should see "Selenium - Official Site"
+    Then I should see "docs.seleniumhq.org"
     And a screenshot "yahoo-proof.png" will be saved
 
