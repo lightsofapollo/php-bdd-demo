@@ -1,7 +1,7 @@
 default:
   extensions:
     Behat\MinkExtension\Extension:
-      browser_name: firefox
+      browser_name: safari
       selenium2:
         wd_host: 'http://127.0.0.1:5556/wd/hub'
       goutte: ~

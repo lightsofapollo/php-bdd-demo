@@ -44,36 +44,31 @@ class FeatureContext extends BehatContext
     /**
      * @Given /^I have entered "([^"]*)" in "([^"]*)"$/
      */
-    public function IHaveEntered($value, $input_title){
-        $element = $this->findByCss("input[title='{$input_title}'], input[title='Use up and down arrow keys to select suggestions']");
-        $element->setValue($value);
+    public function IHaveEntered($value, $input){
+        $this->fillField($input, $value);
     }
-
-    /**
-     * @Given /^I have entered "([^"]*)" in input name "([^"]*)"$/
-     */
-    public function IHaveEnteredName($value, $input_title){
-        $element = $this->findByCss("input[name='{$input_title}']");
-        $element->sendKeys(array($value));
-    }
-
-
 
     /**
      * @Given /^I submit "([^"]*)"$/
      **/
     public function ISubmit($field){
-        $element = $this->findByCss("button[value='$field']");
-        $element->click();
+        $this->pressButton($field);
     }
 
     /**
-     * @Given /^I submit with name "([^"]*)"$/
-     **/
-    public function ISubmitWithName($field){
-        $element = $this->findByCss("input[name='$field']");
-        $element->click();
+     * @Then /^I wait for the text "([^"]*)" to appear$/
+     *
+     */
+    public function iWaitForText($text)
+    {
+        try {
+            $text = $this->fixStepArgument($text);
+            $this->getSession()->wait(5000, "document.body.innerText.search('$text') >= 0");
+        } catch( Behat\Mink\Exception\UnsupportedDriverActionException $ignore) {
+            // ignore this for headless
+        }
     }
+
 
     /**
      * @AfterScenario
