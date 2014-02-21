@@ -27,21 +27,18 @@ export PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
 # update your paths
 source ~/.bashrc 
 
-# The next steps are from: https://github.com/lightsofapollo/php-bdd-demo
+# install rvm and ruby
+\curl -sSL https://get.rvm.io | bash
+rvm install ruby-2.1.0
+rvm reload
+bundle install
 
-# install cuke4php, which is a Ruby gem
-gem install cuke4php
-
-# install cuke4php, which is a Ruby gem
+# setup auto-test functionality
 gem install watchr
 # event watcher for Linux/BSD
 gem install rev
 # event watcher for OSX
 gem install ruby-fsevent
-
-
-# verify installation succeeded
-which cuke4php
 
 # navigate into folder
 # install dependencies PHPUnit and PHPUnit_Selenium
