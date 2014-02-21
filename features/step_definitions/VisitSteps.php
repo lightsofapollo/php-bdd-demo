@@ -92,7 +92,7 @@ class VisitSteps extends PhpBdd_Steps {
   * Then /^a screenshot "([^"]*)" will be saved$/
   **/
   public function stepThenAScreenshotWillBeSaved($name){
-    $this->driver->getScreenshotAndSaveToFile($name);
+    $this->driver->getScreenshotAndSaveToFile("debug/screenshots/{$name}");
   }
 
   protected function findByCss($css){
