@@ -1,5 +1,7 @@
 {
     "require": {
+    },
+    "require-dev": {
         "phpunit/phpunit": "3.7.31",
         "phpunit/phpunit-selenium": "1.3.3",
         "instaclick/php-webdriver": "~1.0.12",

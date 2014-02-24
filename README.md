@@ -10,6 +10,9 @@ xcode-select --install
 brew tap josegonzalez/homebrew-php
 brew install josegonzalez/php/composer
 
+# update composer (if you already have it)
+composer self-update
+
 # install PHP55
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
@@ -42,8 +45,8 @@ gem install ruby-fsevent
 
 # navigate into folder
 # install dependencies PHPUnit and PHPUnit_Selenium
-composer install
-# or composer update
+composer install --dev
+# or composer update --update
 
 # In a new tab: run the selenium grid script
 ./bin/selenium-hub.sh
