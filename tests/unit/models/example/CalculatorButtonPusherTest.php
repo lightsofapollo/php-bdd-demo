@@ -17,8 +17,8 @@ class CalculatorButtonPusherTest extends PHPUnit_Framework_TestCase {
     {
         // test methods are being called
         $service = m::mock('Calculator');
-        $service->shouldReceive('add')->times(1)->with(1.5);
-        $service->shouldReceive('multiply')->times(1)->with(1.5);
+        $service->shouldReceive('add')->times(1)->with(1.5)->ordered();
+        $service->shouldReceive('multiply')->times(1)->with(1.5)->ordered();
 
         // inject dependency
         $this->calculatorButtonPusher = new CalculatorButtonPusher($service);
