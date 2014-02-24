@@ -1,19 +1,25 @@
-# download a demo selenium app
-# the next command will create a new folder and place the demo code in it
-git clone git@github.com:michikono/php-bdd-demo.git
+# Setup
 
-# (OPTIONAL) if brew has problems, run this next line:
-# sudo chown -R $USER /usr/local/Cellar/
+### Clone the demo repository.
 
-# install composer
-xcode-select --install
-brew tap josegonzalez/homebrew-php
-brew install josegonzalez/php/composer
+`git clone git@github.com:michikono/php-bdd-demo.git`
 
-# install PHP55
-brew tap homebrew/dupes
-brew tap josegonzalez/homebrew-php
-brew install php55
+### Install xcode command line utilities if you do not have them already
+
+`xcode-select --install`
+
+### Install Composer
+
+`brew tap josegonzalez/homebrew-php`
+
+`brew install josegonzalez/php/composer`
+
+### install PHP55
+`brew tap homebrew/dupes`
+
+`brew tap josegonzalez/homebrew-php`
+
+`brew install php55`
 
 # the previous step will tell you HOW to update your CLI path, which is also outlined below!
 #
