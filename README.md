@@ -54,11 +54,13 @@ composer install --dev
 # In another tab:
 ./bin/selenium-webdriver.sh
 
-# turn on auto test-running (runs headless behat tests)
+# turn on auto test-running (runs headless behat tests + phpunit tests)
 observr ./test.observr.rb
 
-# Run behat tests
-./bin/behat --verbose --profile headless
-# or for the full browser test
-./bin/behat --verbose
+# Run phpunit tests manually
+# phpunit
+# Run behat tests manually
+# ./bin/behat --verbose --profile headless
+# or for the full browser test manually
+# ./bin/behat --verbose
 
