@@ -1,12 +1,28 @@
 <?php
 
-namespace Example;
+namespace Models\Example;
+
+use Symfony\Component\Process\Exception\InvalidArgumentException;
 
 class Calculator {
 
-    var $result = 0;
+    private $result = 0;
 
-    function getResult() {
+    public function add($value) {
+        if(!is_numeric($value)) {
+            throw new \InvalidArgumentException("not an integer");
+        }
+        $this->result += $value;
+    }
+
+    public function multiply($value) {
+        if(!is_numeric($value)) {
+            throw new \InvalidArgumentException("not an integer");
+        }
+        $this->result *= $value;
+    }
+
+    public function getResult() {
         return $this->result;
     }
 }
