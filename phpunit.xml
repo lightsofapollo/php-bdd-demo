@@ -1,6 +1,6 @@
 <phpunit backupGlobals="true"
          backupStaticAttributes="false"
-         bootstrap="./test_helper.php"
+         bootstrap="./tests/unit/test_helper.php"
          cacheTokens="true"
          colors="true"
          convertErrorsToExceptions="true"
@@ -14,7 +14,7 @@
          stopOnFailure="false"
          stopOnIncomplete="false"
          stopOnSkipped="false"
-         strict="false"
-         verbose="false">
+         strict="true"
+         verbose="true">
 
 </phpunit>

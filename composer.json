@@ -1,4 +1,9 @@
 {
+    "autoload": {
+        "classmap": [
+            "src/models/example"
+        ]
+    },
     "require": {
     },
     "require-dev": {
