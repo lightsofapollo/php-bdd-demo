@@ -113,7 +113,7 @@ class WebDriverBase {
 
     /**
      * Function analyses status attribute of the response.
-     * For some statuses it throws exception (for example NoSuchElementException).
+     * For some statuses it throws exception (for Example NoSuchElementException).
      * @param string $json_response
      */
     protected function handleResponse($json_response) {
@@ -223,7 +223,7 @@ class WebDriverBase {
 
     /**
      * Function returns value of 'value' attribute in JSON string
-     * @example extractValueFromJsonResponse("{'name':'John', 'value':'123'}")=='123'
+     * @Example extractValueFromJsonResponse("{'name':'John', 'value':'123'}")=='123'
      * @param string $json JSON string with value attrubute to extract
      * @return string value of 'value' attribute
      */

@@ -1,6 +1,6 @@
 <phpunit backupGlobals="true"
          backupStaticAttributes="false"
-         bootstrap="./test_helper.php"
+         bootstrap="./tests/unit/test_helper.php"
          cacheTokens="true"
          colors="true"
          convertErrorsToExceptions="true"
@@ -8,13 +8,18 @@
          convertWarningsToExceptions="true"
          forceCoversAnnotation="false"
          mapTestClassNameToCoveredClassName="false"
-         printerClass="PHPUnit_TextUI_ResultPrinter"
          processIsolation="false"
          stopOnError="false"
          stopOnFailure="false"
          stopOnIncomplete="false"
          stopOnSkipped="false"
-         strict="false"
-         verbose="false">
+         strict="true"
+         syntaxCheck="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="models">
+            <directory>tests/unit/models</directory>
+        </testsuite>
+    </testsuites>
 
 </phpunit>

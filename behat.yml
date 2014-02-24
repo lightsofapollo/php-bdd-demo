@@ -12,7 +12,7 @@ headless:
     tags: "~@ui-specs"
 
   paths:
-    features: 'features'
+    features: 'tests/functional'
     bootstrap: %behat.paths.features%/bootstrap
 
   extensions:

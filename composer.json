@@ -1,7 +1,16 @@
 {
+    "autoload": {
+        "classmap": [
+            "src/models/example"
+        ]
+    },
     "require": {
+    },
+    "require-dev": {
         "phpunit/phpunit": "3.7.31",
         "phpunit/phpunit-selenium": "1.3.3",
+        "mockery/mockery": "dev-master@dev",
+
         "instaclick/php-webdriver": "~1.0.12",
 
         "behat/behat": "2.5.*@stable",
