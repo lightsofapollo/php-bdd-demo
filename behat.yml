@@ -1,0 +1,22 @@
+default:
+  extensions:
+    Behat\MinkExtension\Extension:
+      browser_name: safari
+      selenium2:
+        wd_host: 'http://127.0.0.1:5556/wd/hub'
+      goutte: ~
+      default_session: selenium2
+
+headless:
+  filters:
+    tags: "~@ui-specs"
+
+  paths:
+    features: 'tests/functional'
+    bootstrap: %behat.paths.features%/bootstrap
+
+  extensions:
+    Behat\MinkExtension\Extension:
+      selenium2: ~
+      goutte: ~
+      default_session: goutte

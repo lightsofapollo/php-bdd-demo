@@ -78,6 +78,16 @@ class WebElement extends WebDriverBase {
         $response = $this->execute_rest_request_GET($request);
         return $this->extractValueFromJsonResponse($response);
     }
+	
+    /**
+     * Get the value of a the given attribute of the element. 
+     */
+    public function getAttribute($attribute) {
+    	$request = $this->requestURL . '/attribute/'.$attribute;
+    	$response = $this->execute_rest_request_GET($request);
+    	$attributeValue = $this->extractValueFromJsonResponse($response);
+    	return ($attributeValue);
+    }
 
     /**
      * Determine if an OPTION element, or an INPUT element of type checkbox or radiobutton is currently selected.

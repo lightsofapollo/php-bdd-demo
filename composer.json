@@ -1,0 +1,27 @@
+{
+    "autoload": {
+        "classmap": [
+            "src/models/example"
+        ]
+    },
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.31",
+        "phpunit/phpunit-selenium": "1.3.3",
+        "mockery/mockery": "dev-master@dev",
+
+        "instaclick/php-webdriver": "~1.0.12",
+
+        "behat/behat": "2.5.*@stable",
+
+        "behat/mink": "1.5@stable",
+        "behat/mink-extension": "1.2.*@stable",
+        "behat/mink-goutte-driver": "1.0.*@stable",
+        "behat/mink-selenium2-driver": "1.*@stable"
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "bin-dir": "bin/"
+    }
+}

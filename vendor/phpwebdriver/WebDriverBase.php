@@ -29,10 +29,6 @@ class WebDriverBase {
     function __construct($_seleniumUrl) {
         $this->requestURL = $_seleniumUrl;
     }
-
-		public function __destruct(){
-			$this->curlClose();
-		}
     
     protected function &curlInit( $url ) {
         if( $this->_curl === null ) {
@@ -45,9 +41,7 @@ class WebDriverBase {
         curl_setopt( $this->_curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $this->_curl, CURLOPT_FOLLOWLOCATION, true );
         curl_setopt( $this->_curl, CURLOPT_HEADER, false );
-				curl_setopt( $this->_curl, CURLOPT_TIMEOUT, 5);
-				curl_setopt( $this->_curl, CURLOPT_MAXCONNECTS, 100);
-
+//		print_r($url."\n");
         return $this->_curl;
     }
 
@@ -80,7 +74,7 @@ class WebDriverBase {
 
     protected function prepareGET( $session ) {
         
-        curl_setopt($session, CURLOPT_HTTPGET, true);
+        //curl_setopt($session, CURLOPT_GET, true);
     }
 
     protected function prepareDELETE($session) {
@@ -119,7 +113,7 @@ class WebDriverBase {
 
     /**
      * Function analyses status attribute of the response.
-     * For some statuses it throws exception (for example NoSuchElementException).
+     * For some statuses it throws exception (for Example NoSuchElementException).
      * @param string $json_response
      */
     protected function handleResponse($json_response) {
@@ -229,7 +223,7 @@ class WebDriverBase {
 
     /**
      * Function returns value of 'value' attribute in JSON string
-     * @example extractValueFromJsonResponse("{'name':'John', 'value':'123'}")=='123'
+     * @Example extractValueFromJsonResponse("{'name':'John', 'value':'123'}")=='123'
      * @param string $json JSON string with value attrubute to extract
      * @return string value of 'value' attribute
      */
